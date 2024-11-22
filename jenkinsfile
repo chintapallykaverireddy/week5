@@ -1,23 +1,23 @@
 pipeline {
     agent any 
-    stages{
-        stage("Build"){
-            steps{
+    stages {
+        stage("Build") {
+            steps {
                 script {
                   bat "docker build -t week5 ."
                   bat "docker run -d -p 8083:3000 week5"
                 }
             }
-        }
-        stage("Test"){
-            steps{
+        } 
+        stage("Test") {
+            steps {
                 script {
                  echo "running tests"
                 }
             }
         }
-        stage("Build"){
-            steps{
+        stage("Build") {
+            steps {
                 script {
                   echo "deploying"
                 }
